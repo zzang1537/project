@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>basic :: Layout Test</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400&display=swap">
+<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" sizes="16x16">
+<link rel="icon" type="image/x-icon" href="images/favicon.ico" sizes="16x16">
+<link rel="stylesheet" href="css/style.css">
+<style>
+
+
+</style>
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script>
+	$(document).ready(function(){
+		let pageN=0;
+
+		$(".slider_moving li").eq(0).addClass("active");
+		$(".control li").eq(0).addClass("on");
+
+		$(".control li").click(function(e){
+			e.preventDefault();
+			$(".control li").removeClass("on");
+			$(this).addClass("on");
+
+			pageN=$(this).index();
+
+			$(".slider_moving li").removeClass("active");
+			$(".slider_moving li").eq(pageN).addClass("active");
+		});
+		$(".direction a.right").click(function(e){
+			e.preventDefault();
+
+			if(pageN < 3){
+				pageN=pageN+1;
+			}
+			else{
+				pageN=0;
+			}
+			$(".control li").removeClass("on");
+			$(".control li").eq(pageN).addClass("on");
+			$(".slider_moving li").removeClass("active");
+			$(".slider_moving li").eq(pageN).addClass("active");
+		});
+		$(".direction a.left").click(function(e){
+			e.preventDefault();
+
+			if(pageN > 0){
+				pageN=pageN-1;
+			}
+			else{
+				pageN=3;
+			}
+			$(".control li").removeClass("on");
+			$(".control li").eq(pageN).addClass("on");
+			$(".slider_moving li").removeClass("active");
+			$(".slider_moving li").eq(pageN).addClass("active");
+		});
+		
+
+
+		/*gnb*/
+		$("#gnb > ul > li").hover(function(){
+			$("#header .menu").addClass("active");
+		},
+		function(){
+			$("#header .menu").removeClass("active");
+		}
+		);
+
+		$("#gnb > ul > li > a").focusin(function(){
+			$(this).parent().addClass("act");
+		});
+		$("#gnb li li:last-child a").focusout(function(){
+			$(this).parent().parent().parent().removeClass("current")
+		});
+		$("#gnb > ul > li:first-child > a").focusin(function(){
+			$("#header .menu").addClass("active");
+		});	
+		$("#gnb li:last-child li:last-child a").focusout(function(){
+			$("#header .menu").removeClass("active");
+		});	
+		
+	});
+
+</script>
+</head>
+<body>
+
+<div class="skip_nav">
+	<a href="#content">본문 바로가기</a>
+</div>
+<div class="wrapper">
+	<header id="header">
+		<div class="top">
+			<div class="top_left">
+				<div class="sns">
+					<ul>
+						<li><a href=""><img src="images/social_icon1.gif" alt="facebook"></a></li>
+						<li><a href=""><img src="images/social_icon2.gif" alt="blog"></a></li>
+						<li><a href=""><img src="images/social_icon3.gif" alt="kakao"></a></li>					
+					</ul>	
+					<a href=""><img src="images/mileage_ov.png" alt="mileage"></a>
+				</div>
+			</div>
+			<h1 id="logo"><a href=""><img src="images/logo.png" alt="logo"></a></h1>
+			<div class="utile">
+				<ul>
+					<li><a href=""><span>LOGIN</span></a></li>
+					<li><a href=""><span>JOIN</span></a></li>
+					<li><a href=""><span>개인정보취급방침</span></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="menu">
+			<nav id="gnb">
+				<ul>
+					<li>
+						<a href=""><span>NEW</span></a>
+						<ul>
+							<li><a href="">ARRIVE</a></li>	
+							<li><a href="">NEW</a></li>	
+						</ul>
+					</li>
+					<li>
+						<a href=""><span>WOMEN</span></a>
+						<ul>
+							<li><a href="">APPAREL</a></li>
+							<li><a href="">SHOES</a></li>
+							<li><a href="">BAGS</a></li>
+							<li><a href="">ACCESSORIES</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href=""><span>MEN</span></a>
+						<ul>
+							<li><a href="">APPAREL</a></li>
+							<li><a href="">SHOES</a></li>
+							<li><a href="">BAG&ACC</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href=""><span>LIFE</span></a>
+						<ul>
+							<li><a href="">APARTMENT</a></li>
+							<li><a href="">ELECTRONICS</a></li>
+							<li><a href="">CULTURE</a></li>
+							<li><a href="">BEAUTY</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href=""><span>SALE</span></a>
+						<ul>
+							<li><a href="">SALE</a></li>
+							<li><a href="">SALE EVENT</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href=""><span>BRAND</span></a>
+						<ul>
+							<li><a href="">EXCLUSIVE</a></li>
+							<li><a href="">TOP</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</header>	
+	<div class="slider">
+		<div class="slider_moving">
+			<ul>
+				<li><a href=""><img src="images/key1.jpg" alt="key1"></a></li>
+				<li><a href=""><img src="images/key2.jpg" alt="key2"></a></li>
+				<li><a href=""><img src="images/key3.jpg" alt="key3"></a></li>
+				<li><a href=""><img src="images/key4.jpg" alt="key4"></a></li>
+			</ul>
+		</div>
+		<div class="direction">
+			<a class="left" href=""><img src="images/btn_left.png" alt="btn_left"></a>
+			<a class="right" href=""><img src="images/btn_right.png" alt="btn_right"></a>
+		</div>
+		<div class="control">
+			<ul>
+				<li><a href="">1번 슬라이더</a></li>
+				<li><a href="">2번 슬라이더</a></li>
+				<li><a href="">3번 슬라이더</a></li>
+				<li><a href="">4번 슬라이더</a></li>
+			</ul>
+		</div>
+	</div>
+	<section id="content">
+		<div class="banner1 clearfix">
+			<div class="banner1_1">
+				<a href=""><img src="images/buttero.jpg" alt="buttero"></a>
+			</div>
+			<div class="banner1_2">
+				<a href="">
+					<h3>buttero</h3>
+					<span>101% handcrafted</span>
+					<p>A fusion of pure rawness<br> and elegance</p>
+					<p class="link">view more</p>
+				</a>
+			</div>
+		</div>
+		<div class="banner2 clearfix">
+			<div class="banner2_1">
+				<a href="">
+					<h3>atclip launching</h3>
+					<span>new launching</span>
+					<p>Focus on restraint<br> and the complex beauty</p>
+					<p class="link">view more</p>
+				</a>
+			</div>
+			<div class="banner2_2">
+				<a href=""><img src="images/atclip.jpg" alt="atclip"></a>
+			</div>
+		</div>
+		<div class="banner3 clearfix">
+			<div class="banner3_left">
+				<div class="banner3_left_1">
+					<a href="">
+						<img src="images/heich.jpg" alt="heich">
+						<div class="text">
+							<span>heich blade 17 f/w collection</span>
+							<h3>lookbook</h3>
+							<p class="link">view more</p>
+						</div>
+					</a>
+				</div>
+				<div class="banner3_left_2">
+					<img src="images/new.png" alt="new">
+					<a href="">
+						<div class="text">											
+							<h2>new</h2><br>
+							<span>new in this week</span>
+							<p class="link">view more</p>
+						</div>	
+					</a>
+				</div>
+			</div>
+			<div class="banner3_right">
+				<div class="banner3_right_1">
+					<div class="text">
+						<a href="">
+							<h2>sale</h2><br>
+							<span>다양하고 특별한 할인 혜택을 만나보세요.</span>
+							<p class="link">view more</p>
+						</a>
+					</div>
+				</div>
+				<div class="banner3_right_2">
+					<a href="">
+						<img src="images/mimic.jpg" alt="mimic">
+						<div class="text">
+							<span>mimicawe 17 f/w</span>
+							<h3>collection</h3>
+							<p class="link">view more</p>
+						</div>
+					</a>
+				</div>
+			</div>                          
+		</div>
+	</section>
+	<footer id="footer">
+		<div class="footer_inner">
+			<div class="footer_top">
+				<p>㈜더블유컨셉코리아 대표자 : 황재익 서울특별시 강남구 테헤란로14길 16, 5층</p>
+				<a href=""><img src="images/private_ot.png" alt="개인정보취급방침"></a>				
+			</div>
+			<div class="sns">
+				<ul>
+					<li><a href=""><img src="images/facebook_ot.png" alt="facebook"></a></li>
+					<li><a href=""><img src="images/blog_ot.png" alt="blog"></a></li>
+					<li><a href=""><img src="images/kakao_ot.png" alt="kakao"></a></li>
+				</ul>
+				<span>copyright(c) 2018 W concept all rights reserved.</span>
+			</div>					
+		</div>
+	</footer>
+ </div>
+</body>
+</html>
