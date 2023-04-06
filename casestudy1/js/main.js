@@ -10,18 +10,20 @@
 		}
 		);
 
+		/*focus*/
 		$("#gnb > ul > li > a").focusin(function(){
 			$(this).parent().addClass("act");
 		});
 		$("#gnb li li:last-child a").focusout(function(){
-			$(this).parent().parent().parent().removeClass("current")
+			$(this).parent().parent().parent().removeClass("act");
 		});
 		$("#gnb > ul > li:first-child > a").focusin(function(){
 			$("#header .menu").addClass("active");
 		});	
 		$("#gnb li:last-child li:last-child a").focusout(function(){
 			$("#header .menu").removeClass("active");
-		});	
+		});
+		
 
 		/*slider*/
 		let pageN=0;
