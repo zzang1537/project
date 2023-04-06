@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<title>basic :: Layout Test</title>
+<title>W concept</title>
 <meta charset="utf-8">
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -9,86 +9,11 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400&display=swap">
 <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" sizes="16x16">
 <link rel="icon" type="image/x-icon" href="images/favicon.ico" sizes="16x16">
+<link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/style.css">
-<style>
-
-
-</style>
-
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-<script>
-	$(document).ready(function(){
-		let pageN=0;
+<script src="js/main.js"></script>
 
-		$(".slider_moving li").eq(0).addClass("active");
-		$(".control li").eq(0).addClass("on");
-
-		$(".control li").click(function(e){
-			e.preventDefault();
-			$(".control li").removeClass("on");
-			$(this).addClass("on");
-
-			pageN=$(this).index();
-
-			$(".slider_moving li").removeClass("active");
-			$(".slider_moving li").eq(pageN).addClass("active");
-		});
-		$(".direction a.right").click(function(e){
-			e.preventDefault();
-
-			if(pageN < 3){
-				pageN=pageN+1;
-			}
-			else{
-				pageN=0;
-			}
-			$(".control li").removeClass("on");
-			$(".control li").eq(pageN).addClass("on");
-			$(".slider_moving li").removeClass("active");
-			$(".slider_moving li").eq(pageN).addClass("active");
-		});
-		$(".direction a.left").click(function(e){
-			e.preventDefault();
-
-			if(pageN > 0){
-				pageN=pageN-1;
-			}
-			else{
-				pageN=3;
-			}
-			$(".control li").removeClass("on");
-			$(".control li").eq(pageN).addClass("on");
-			$(".slider_moving li").removeClass("active");
-			$(".slider_moving li").eq(pageN).addClass("active");
-		});
-		
-
-
-		/*gnb*/
-		$("#gnb > ul > li").hover(function(){
-			$("#header .menu").addClass("active");
-		},
-		function(){
-			$("#header .menu").removeClass("active");
-		}
-		);
-
-		$("#gnb > ul > li > a").focusin(function(){
-			$(this).parent().addClass("act");
-		});
-		$("#gnb li li:last-child a").focusout(function(){
-			$(this).parent().parent().parent().removeClass("current")
-		});
-		$("#gnb > ul > li:first-child > a").focusin(function(){
-			$("#header .menu").addClass("active");
-		});	
-		$("#gnb li:last-child li:last-child a").focusout(function(){
-			$("#header .menu").removeClass("active");
-		});	
-		
-	});
-
-</script>
 </head>
 <body>
 
