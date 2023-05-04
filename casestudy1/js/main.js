@@ -26,40 +26,19 @@
 		
 
 		/*slider*/
-		let pageN=0;
-
-		$(".slider_moving li").eq(0).addClass("active");
-		$(".control li").eq(0).addClass("on");
-
-		$(".control li").click(function(e){
-			e.preventDefault();
-			pageN=$(this).index();
-
-			sliderInter();
-
-		});
-		$(".direction a.right").click(function(e){
-			e.preventDefault();
-
-			if(pageN < 3){
-				pageN=pageN+1;
+	
+		const mainSwiper = new Swiper(".mainSwiper", {
+			spaceBetween: 30,
+			loop: true,
+			pagination: {
+			  el: ".swiper-pagination",
+			  clickable: true,
+			},
+			navigation: {
+				nextEl: ".swiper-button-next",
+				prevEl: ".swiper-button-prev",
 			}
-			else{
-				pageN=0;
-			}
-			sliderInter();
-		});
-		$(".direction a.left").click(function(e){
-			e.preventDefault();
-
-			if(pageN > 0){
-				pageN=pageN-1;
-			}
-			else{
-				pageN=3;
-			}
-			sliderInter();
-		});
+		  });
 		
 		function sliderInter(){
 			$(".control li").removeClass("on");

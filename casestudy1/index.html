@@ -9,8 +9,11 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400&display=swap">
 <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" sizes="16x16">
 <link rel="icon" type="image/x-icon" href="images/favicon.ico" sizes="16x16">
+
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script src="js/main.js"></script>
 
@@ -97,25 +100,16 @@
 		</div>
 	</header>	
 	<div class="slider">
-		<div class="slider_moving">
-			<ul>
-				<li><img src="images/key1.jpg" alt="key1"></li>
-				<li><img src="images/key2.jpg" alt="key2"></li>
-				<li><img src="images/key3.jpg" alt="key3"></li>
-				<li><img src="images/key4.jpg" alt="key4"></li>
-			</ul>
-		</div>
-		<div class="direction">
-			<a class="left" href=""><img src="images/btn_left.png" alt="btn_left"></a>
-			<a class="right" href=""><img src="images/btn_right.png" alt="btn_right"></a>
-		</div>
-		<div class="control">
-			<ul>
-				<li><a href="">1번 슬라이더</a></li>
-				<li><a href="">2번 슬라이더</a></li>
-				<li><a href="">3번 슬라이더</a></li>
-				<li><a href="">4번 슬라이더</a></li>
-			</ul>
+		<div class="swiper mainSwiper">
+			<div class="swiper-wrapper">
+			  <div class="swiper-slide"><img src="images/key1.jpg" alt="key1"></div>
+			  <div class="swiper-slide"><img src="images/key2.jpg" alt="key2"></div>
+			  <div class="swiper-slide"><img src="images/key3.jpg" alt="key3"></div>
+			  <div class="swiper-slide"><img src="images/key4.jpg" alt="key4"></div>
+			</div>
+			<div class="swiper-button-next"></div>
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-pagination"></div>
 		</div>
 	</div>
 	<section id="content">
